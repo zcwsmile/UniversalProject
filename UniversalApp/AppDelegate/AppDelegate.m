@@ -19,7 +19,7 @@
     [self initWindow];
     
     //UMeng初始化
-    [self initUMeng];
+//    [self initUMeng];
     
     //初始化app服务
     [self initService];

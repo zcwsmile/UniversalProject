@@ -48,6 +48,7 @@
 #import "ThirdMacros.h"
 #import "CommonMacros.h"
 
+
 //基础类
 #import "AppDelegate.h"
 #import "AppDelegate+AppService.h"
@@ -60,6 +61,10 @@
 #import "UserManager.h"
 #import "IMManager.h"
 #import "UIButton+XYButton.h"
+#import "UIBarButtonItem+DCBarButtonItem.h"
+#import "UIColor+My.h"
+#import "UIColor+MyProject.h"
+#import "Enumeration.h"
 
 //第三方
 #import <YYKit.h>

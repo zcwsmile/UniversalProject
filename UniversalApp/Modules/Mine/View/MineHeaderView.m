@@ -42,12 +42,12 @@
     if (userInfo) {
         self.showIDLabel.text = NSStringFormat(@"ID: %@",userInfo.idcard);
         [self.nickNameView setNickName:userInfo.nickname sex:userInfo.sex age:26 level:userInfo.degreeId];
-//        [self.headImgView setImageWithURL:[NSURL URLWithString:userInfo.photo] placeholder:[UIImage imageWithColor:KGrayColor]];
-        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo] placeholderImage:[UIImage imageWithColor:KGrayColor]];
+//        [self.headImgView setImageWithURL:[NSURL URLWithString:userInfo.photo] placeholder:[UIImage imageWithColor:[UIColor grayColor]]];
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo] placeholderImage:[UIImage imageWithColor:[UIColor grayColor]]];
     }else{
         self.showIDLabel.text = @"";
         [self.nickNameView setNickName:@"未登录" sex:0 age:0 level:0];
-        [self.headImgView setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503377311744&di=a784e64d1cce362c663f3480b8465961&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F85cccab3gw1etdit7s3nzg2074074twy.jpg"] placeholder:[UIImage imageWithColor:KGrayColor]];
+        [self.headImgView setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503377311744&di=a784e64d1cce362c663f3480b8465961&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F85cccab3gw1etdit7s3nzg2074074twy.jpg"] placeholder:[UIImage imageWithColor:[UIColor grayColor]]];
     }
 }
 #pragma mark ————— 头像点击 —————
@@ -109,8 +109,8 @@
 -(UILabel *)showIDLabel{
     if (!_showIDLabel) {
         _showIDLabel = [UILabel new];
-        _showIDLabel.font = SYSTEMFONT(12);
-        _showIDLabel.textColor = KWhiteColor;
+        _showIDLabel.font = FONTSystemSize(12);
+        _showIDLabel.textColor = [UIColor whiteColor];
         [self addSubview:_showIDLabel];
         [_showIDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(_signatureLabel.mas_top).offset(-4);
@@ -123,8 +123,8 @@
 -(UILabel *)signatureLabel{
     if (!_signatureLabel) {
         _signatureLabel = [UILabel new];
-        _signatureLabel.font = SYSTEMFONT(14);
-        _signatureLabel.textColor = KWhiteColor;
+        _signatureLabel.font = FONTSystemSize(14);
+        _signatureLabel.textColor = [UIColor whiteColor];
         [self addSubview:_signatureLabel];
         [_signatureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(self).offset(-16);

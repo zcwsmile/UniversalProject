@@ -47,7 +47,7 @@
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(10, 10, size - 20, size - 20);
-        [button setBackgroundColor:CNavBgColor];
+        [button setBackgroundColor:[UIColor appMainColor]];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18];
         button.clipsToBounds = YES;
@@ -168,17 +168,17 @@
     }
     
     if (draggableDirection == YSLDraggableDirectionLeft) {
-        view.selectedView.backgroundColor = KRedColor;
+        view.selectedView.backgroundColor = [UIColor redColor];
         view.selectedView.alpha = widthRatio > 0.8 ? 0.8 : widthRatio;
     }
     
     if (draggableDirection == YSLDraggableDirectionRight) {
-        view.selectedView.backgroundColor = KBlueColor;
+        view.selectedView.backgroundColor = [UIColor blueColor];
         view.selectedView.alpha = widthRatio > 0.8 ? 0.8 : widthRatio;
     }
     
     if (draggableDirection == YSLDraggableDirectionUp) {
-        view.selectedView.backgroundColor = KGrayColor;
+        view.selectedView.backgroundColor = [UIColor grayColor];
         view.selectedView.alpha = heightRatio > 0.8 ? 0.8 : heightRatio;
     }
 }

@@ -114,23 +114,23 @@
 #pragma mark ————— 创建自定义导航栏 —————
 -(void)createNav{
     _NavView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kTopHeight)];
-    _NavView.backgroundColor = KClearColor;
+    _NavView.backgroundColor = [UIColor clearColor];
     
     UILabel * titlelbl = [[UILabel alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, KScreenWidth/2, kNavBarHeight )];
     titlelbl.centerX = _NavView.width/2;
     titlelbl.textAlignment = NSTextAlignmentCenter;
-    titlelbl.font= SYSTEMFONT(17);
-    titlelbl.textColor = KWhiteColor;
+    titlelbl.font= FONTSystemSize(17);
+    titlelbl.textColor = [UIColor whiteColor];
     titlelbl.text = self.title;
     [_NavView addSubview:titlelbl];
     
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setTitle:@"设置" forState:UIControlStateNormal];
-    btn.titleLabel.font = SYSTEMFONT(16);
-    [btn setTitleColor:KWhiteColor forState:UIControlStateNormal];
+    btn.titleLabel.font = FONTSystemSize(16);
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn sizeToFit];
     btn.frame = CGRectMake(_NavView.width - btn.width - 15, kStatusBarHeight, btn.width, 40);
-    [btn setTitleColor:KWhiteColor forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(changeUser) forControlEvents:UIControlEventTouchUpInside];
     
     [_NavView addSubview:btn];

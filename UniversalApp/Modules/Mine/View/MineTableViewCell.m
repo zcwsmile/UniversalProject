@@ -98,8 +98,8 @@
 -(UILabel *)titleLbl{
     if (!_titleLbl) {
         _titleLbl = [UILabel new];
-        _titleLbl.font = SYSTEMFONT(15);
-        _titleLbl.textColor = KBlackColor;
+        _titleLbl.font = FONTSystemSize(15);
+        _titleLbl.textColor = [UIColor blackColor];
         [self addSubview:_titleLbl];
         [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_titleIcon.mas_right).offset(10);
@@ -112,8 +112,8 @@
 -(UILabel *)detaileLbl{
     if (!_detaileLbl) {
         _detaileLbl = [UILabel new];
-        _detaileLbl.font = SYSTEMFONT(12);
-        _detaileLbl.textColor = KGrayColor;
+        _detaileLbl.font = FONTSystemSize(12);
+        _detaileLbl.textColor = [UIColor grayColor];
         _detaileLbl.textAlignment = UITextAlignmentRight;
         [self addSubview:_detaileLbl];
         

@@ -50,9 +50,9 @@ SINGLETON_FOR_CLASS(IMManager);
 -(void)IMLogout{
 //    [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
 //        if (!error) {
-//            DLog("IM 退出成功");
+//            NSLog("IM 退出成功");
 //        }else{
-//            DLog("IM 退出失败 %@",error.localizedDescription);
+//            NSLog("IM 退出失败 %@",error.localizedDescription);
 //        }
 //    }];
 }
@@ -77,7 +77,7 @@ SINGLETON_FOR_CLASS(IMManager);
 //
 //#pragma mark ————— 代理 收到新消息 —————
 //- (void)onRecvMessages:(NSArray<NIMMessage *> *)messages{
-//    DLog(@"收到新消息");
+//    NSLog(@"收到新消息");
 //}
 //
 

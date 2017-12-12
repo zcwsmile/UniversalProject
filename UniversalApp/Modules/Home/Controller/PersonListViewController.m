@@ -38,6 +38,7 @@
     [self setupUI];
     //开始第一次数据拉取
     [self.collectionView.mj_header beginRefreshing];
+    self.tabBarController.tabBar.hidden = YES;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -56,8 +57,8 @@
     layout.columnMargin = 10;
     layout.delegate = self;
     
-
     self.collectionView.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight - kTopHeight - kTabBarHeight);
+    
     [self.collectionView setCollectionViewLayout:layout];
     self.collectionView.backgroundColor = CViewBgColor;
     [self.collectionView registerClass:[PersonListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([PersonListCollectionViewCell class])];

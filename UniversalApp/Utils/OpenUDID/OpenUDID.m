@@ -53,9 +53,9 @@
 #import <AppKit/NSPasteboard.h>
 #endif
 
-#define OpenUDIDLog(fmt, ...)
-//#define OpenUDIDLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-//#define OpenUDIDLog(fmt, ...) NSLog((@"[Line %d] " fmt), __LINE__, ##__VA_ARGS__);
+#define OpenUDINSLog(fmt, ...)
+//#define OpenUDINSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#define OpenUDINSLog(fmt, ...) NSLog((@"[Line %d] " fmt), __LINE__, ##__VA_ARGS__);
 
 static NSString * kOpenUDIDSessionCache = nil;
 static NSString * const kOpenUDIDDescription = @"OpenUDID_with_iOS6_Support";
@@ -100,7 +100,7 @@ static int const kOpenUDIDRedundancySlots = 100;
         @try{
             item = [NSKeyedUnarchiver unarchiveObjectWithData:item];
         } @catch(NSException* e) {
-            OpenUDIDLog(@"Unable to unarchive item %@ on pasteboard!", [pboard name]);
+            OpenUDINSLog(@"Unable to unarchive item %@ on pasteboard!", [pboard name]);
             item = nil;
         }
     }
@@ -251,7 +251,7 @@ static int const kOpenUDIDRedundancySlots = 100;
         myRedundancySlotPBid = [localDict objectForKey:kOpenUDIDSlotKey];
         optedOutDate = [localDict objectForKey:kOpenUDIDOOTSKey];
         optedOut = optedOutDate!=nil;
-        OpenUDIDLog(@"localDict = %@",localDict);
+        OpenUDINSLog(@"localDict = %@",localDict);
     }
     
     // Here we go through a sequence of slots, each of which being a UIPasteboard created by each participating app
@@ -266,14 +266,14 @@ static int const kOpenUDIDRedundancySlots = 100;
 #else
         NSPasteboard* slotPB = [NSPasteboard pasteboardWithName:slotPBid];
 #endif
-        OpenUDIDLog(@"SlotPB name = %@",slotPBid);
+        OpenUDINSLog(@"SlotPB name = %@",slotPBid);
         if (slotPB==nil) {
             // assign availableSlotPBid to be the first one available
             if (availableSlotPBid==nil) availableSlotPBid = slotPBid;
         } else {
             NSDictionary* dict = [OpenUDID _getDictFromPasteboard:slotPB];
             NSString* oudid = [dict objectForKey:kOpenUDIDKey];
-            OpenUDIDLog(@"SlotPB dict = %@",dict);
+            OpenUDINSLog(@"SlotPB dict = %@",dict);
             if (oudid==nil) {
                 // availableSlotPBid could inside a non null slot where no oudid can be found
                 if (availableSlotPBid==nil) availableSlotPBid = slotPBid;
@@ -301,7 +301,7 @@ static int const kOpenUDIDRedundancySlots = 100;
     //
     NSArray* arrayOfUDIDs = [frequencyDict keysSortedByValueUsingSelector:@selector(compare:)];
     NSString* mostReliableOpenUDID = (arrayOfUDIDs!=nil && [arrayOfUDIDs count]>0)? [arrayOfUDIDs lastObject] : nil;
-    OpenUDIDLog(@"Freq Dict = %@\nMost reliable %@",frequencyDict,mostReliableOpenUDID);
+    OpenUDINSLog(@"Freq Dict = %@\nMost reliable %@",frequencyDict,mostReliableOpenUDID);
         
     // if openUDID was not retrieved from the local preferences, then let's try to get it from the frequency dictionary above
     //
@@ -336,7 +336,7 @@ static int const kOpenUDIDRedundancySlots = 100;
     
     // Here we store in the available PB slot, if applicable
     //
-    OpenUDIDLog(@"Available Slot %@ Existing Slot %@",availableSlotPBid,myRedundancySlotPBid);
+    OpenUDINSLog(@"Available Slot %@ Existing Slot %@",availableSlotPBid,myRedundancySlotPBid);
     if (availableSlotPBid!=nil && (myRedundancySlotPBid==nil || [availableSlotPBid isEqualToString:myRedundancySlotPBid])) {
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
         UIPasteboard* slotPB = [UIPasteboard pasteboardWithName:availableSlotPBid create:YES];
@@ -417,7 +417,7 @@ static int const kOpenUDIDRedundancySlots = 100;
   	// store the dictionary locally
     [defaults setObject:dict forKey:kOpenUDIDKey];
     
-    OpenUDIDLog(@"Local dict after opt-out = %@",dict);
+    OpenUDINSLog(@"Local dict after opt-out = %@",dict);
     
     // reset memory cache 
     kOpenUDIDSessionCache = nil;

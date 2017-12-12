@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor =KWhiteColor;
+    self.view.backgroundColor =[UIColor whiteColor];
     //是否显示返回按钮
     self.isShowLiftBack = YES;
     //默认导航栏样式：黑字
@@ -241,8 +241,8 @@
         btn.frame = CGRectMake(0, 0, 30, 30);
         [btn setTitle:title forState:UIControlStateNormal];
         [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-        btn.titleLabel.font = SYSTEMFONT(16);
-        [btn setTitleColor:KWhiteColor forState:UIControlStateNormal];
+        btn.titleLabel.font = FONTSystemSize(16);
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         btn.tag = [tags[i++] integerValue];
         [btn sizeToFit];
         

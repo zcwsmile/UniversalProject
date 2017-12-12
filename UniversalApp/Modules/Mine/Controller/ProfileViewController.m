@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "XYTransitionProtocol.h"
-#import "WaterFallListViewController.h"
+//#import "WaterFallListViewController.h"
 
 @interface ProfileViewController ()<XYTransitionProtocol>
 
@@ -72,8 +72,8 @@
     lbl.numberOfLines = 0;
     lbl.text = @"个人信息\n\n\n昵称：萌萌哒小萌新\n\n性别：女\n\n个人爱好：琴棋书画我样样不会，只会打王者荣耀😜";
     //    [lbl sizeToFit];
-    lbl.font = SYSTEMFONT(20);
-    lbl.textColor = KBlackColor;
+    lbl.font = FONTSystemSize(20);
+    lbl.textColor = [UIColor blackColor];
     [_detailsView addSubview:lbl];
     
     _detailsView.alpha = 0;

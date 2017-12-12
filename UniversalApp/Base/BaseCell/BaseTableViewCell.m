@@ -38,8 +38,8 @@
     if (!_customDetailLabel) {
         _customDetailLabel = [UILabel new];
         [self addSubview:_customDetailLabel];
-        _customDetailLabel.font = SYSTEMFONT(14);
-        _customDetailLabel.textColor = KGrayColor;
+        _customDetailLabel.font = FONTSystemSize(14);
+        _customDetailLabel.textColor = [UIColor grayColor];
         _customDetailLabel.textAlignment = UITextAlignmentRight;
         [_customDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);

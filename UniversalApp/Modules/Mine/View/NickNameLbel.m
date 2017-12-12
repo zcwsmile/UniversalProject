@@ -27,8 +27,8 @@
     NSMutableAttributedString *attachText1= [NSMutableAttributedString attachmentStringWithContent:img contentMode:UIViewContentModeLeft attachmentSize:size alignToFont:[UIFont systemFontOfSize:18] alignment:YYTextVerticalAlignmentCenter];
     
     [attri insertAttributedString:attachText1 atIndex:0];
-    attri.color = KWhiteColor;
-    attri.font = SYSTEMFONT(12);
+    attri.color = [UIColor whiteColor];
+    attri.font = FONTSystemSize(12);
 
     if (sex == 0 && level == 0 && age == 0) {
         [self.nickNameLbl mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -47,8 +47,8 @@
 -(UILabel *)nickNameLbl{
     if (!_nickNameLbl) {
         _nickNameLbl = [UILabel new];
-        _nickNameLbl.font = SYSTEMFONT(16);
-        _nickNameLbl.textColor = KWhiteColor;
+        _nickNameLbl.font = FONTSystemSize(16);
+        _nickNameLbl.textColor = [UIColor whiteColor];
         [self addSubview:_nickNameLbl];
         
         [_nickNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -61,9 +61,9 @@
 -(YYLabel *)sexLbl{
     if(!_sexLbl){
         _sexLbl = [YYLabel new];
-        _sexLbl.font = SYSTEMFONT(12);
-        _sexLbl.textColor = KWhiteColor;
-        _sexLbl.backgroundColor = KRedColor;
+        _sexLbl.font = FONTSystemSize(12);
+        _sexLbl.textColor = [UIColor whiteColor];
+        _sexLbl.backgroundColor = [UIColor redColor];
         _sexLbl.textContainerInset = UIEdgeInsetsMake(1, 3, 1, 3);
         
         [self addSubview:_sexLbl];
@@ -81,9 +81,9 @@
 -(YYLabel *)levelLbl{
     if (!_levelLbl) {
         _levelLbl = [YYLabel new];
-        _levelLbl.font = SYSTEMFONT(12);
-        _levelLbl.textColor = KWhiteColor;
-        _levelLbl.backgroundColor = KBlueColor;
+        _levelLbl.font = FONTSystemSize(12);
+        _levelLbl.textColor = [UIColor whiteColor];
+        _levelLbl.backgroundColor = [UIColor blueColor];
         _levelLbl.textContainerInset = UIEdgeInsetsMake(1, 3, 1, 3);
         
         [self addSubview:_levelLbl];
